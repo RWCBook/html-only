@@ -27,16 +27,16 @@ function main(action, args1, args2, args3) {
       rtn = (storage(elm, 'item', args1)===null?false:true);
       break;
     case 'props' :
-      rtn = setProps(args1,props);
+      rtn = utils.setProps(args1,props);
       break;  
     case 'list':
-      rtn = list(storage(elm, 'list'));
+      rtn = utils.cleanList(storage(elm, 'list'));
       break;
     case 'read':
-      rtn = list(storage(elm, 'item', args1));
+      rtn = utils.cleanList(storage(elm, 'item', args1));
       break;
     case 'filter':
-      rtn = list(storage(elm, 'filter', args1));
+      rtn = utils.cleanList(storage(elm, 'filter', args1));
       break;
     case 'add':
       rtn = addTask(elm, args1, props);
@@ -74,7 +74,7 @@ function addTask(elm, task, props) {
     rtn = utils.exception("Missing Title");
   } 
   else {
-    storage(elm, 'add', setProps(item, props));
+    storage(elm, 'add', utils.setProps(item, props));
   }
   
   return rtn;
@@ -98,7 +98,7 @@ function updateTask(elm, id, task, props) {
       rtn = utils.exception("Missing Title");
     } 
     else {
-      storage(elm, 'update', id, setProps(item, props));
+      storage(elm, 'update', id, utils.setProps(item, props));
     }
   }
   
@@ -131,7 +131,7 @@ function markCompleted(elm, id, props) {
     item = check;
     item.id = id;
     item.completeFlag = "true";
-    storage(elm, 'update', id, setProps(item, props));
+    storage(elm, 'update', id, utils.setProps(item, props));
   }
 
 }
@@ -147,10 +147,10 @@ function assignUser(elm, id, task, props) {
   else {
 
     if(!task.assignedUser || task.assignedUser.length===0) {
-      error += "Missing Assigned user ";
+      error += "Missing Assigned user, ";
     }
     if(component.user('exists', task.assignedUser)===false) {
-      error += "Assigned user not found ";      
+      error += "Assigned user not found. ";      
     }
     
     if(error!=="") {
@@ -160,42 +160,12 @@ function assignUser(elm, id, task, props) {
       item = check;
       item.id = id;      
       item.assignedUser = task.assignedUser;
-      storage(elm, 'update', id, setProps(item, props));
+      storage(elm, 'update', id, utils.setProps(item, props));
     }
   }
   
   return rtn;
 }
-
-// only write 'known' properties
-function setProps(item, props) {
-  var rtn, i, x, p;
-    
-  rtn = {};  
-  for(i=0,x=props.length;i<x;i++) {
-    p = props[i];
-    rtn[p] = (item[p]||"");
-  }
-  return rtn;
-}
-
-// produce clean array of items
-function list(elm) {
-  var coll;
-
-  coll = [];
-  if(Array.isArray(elm) === true) {
-    coll = elm;
-  }
-  else {
-    if(elm!==null) {
-      coll.push(elm);
-    }
-  }
-
-  return coll;
-}
-
 
 // EOF
 

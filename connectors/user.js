@@ -212,12 +212,11 @@ function sendPasswordPage(req, res, respond, id) {
   }
 }
 
+// handle add user 
 function addUserItem(req, res, respond) {
-  var body, doc, msg, id, ctype, item;
+  var body, doc, msg;
 
-  ctype = '';
   body = '';
-  id = '';
   
   // collect body
   req.on('data', function(chunk) {
@@ -253,10 +252,11 @@ function addUserItem(req, res, respond) {
   });
 }
 
-function updateUser(req, res, respond, id) {
-  var body, doc, msg, ctype, item, check;
 
-  ctype = '';
+// handle update user
+function updateUser(req, res, respond, id) {
+  var body, doc, msg;
+
   body = '';
   
   // collect body
@@ -288,10 +288,11 @@ function updateUser(req, res, respond, id) {
   })
 }
 
-function changePassword(req, res, respond, id) {
-  var body, doc, msg, ctype, item, check;
 
-  ctype = '';
+//handle change password
+function changePassword(req, res, respond, id) {
+  var body, doc, msg;
+
   body = '';
   
   // collect body

@@ -284,6 +284,8 @@ function sendCompletedPage(req, res, respond, id) {
   }
 }
 
+
+// handle add operation
 function addTask(req, res, respond) {
   var body, doc, msg;
 
@@ -318,10 +320,10 @@ function addTask(req, res, respond) {
   });
 }
 
+// handle update operation
 function updateTask(req, res, respond, id) {
-  var body, doc, msg, ctype, item, check;
+  var body, doc, msg;
 
-  ctype = '';
   body = '';
   
   // collect body
@@ -353,6 +355,7 @@ function updateTask(req, res, respond, id) {
   })
 }
 
+// handle remove operation (no body)
 function removeTask(req, res, respond, id) {
   var doc;
   
@@ -377,8 +380,9 @@ function removeTask(req, res, respond, id) {
   }
 }
 
+// handle mark complete operation (no body)
 function markCompleted(req, res, respond, id) {
-  var doc, check;
+  var doc;
 
   // execute
   try {
@@ -401,10 +405,10 @@ function markCompleted(req, res, respond, id) {
   }
 }
 
+// handle assign user operation 
 function assignUser(req, res, respond, id) {
-  var body, doc, msg, ctype, item, check;
+  var body, doc, msg;
 
-  ctype = '';
   body = '';
   
   // collect body

@@ -10,27 +10,33 @@ var fs = require('fs');
 var qs = require('querystring');
 var folder = process.cwd() + '/files/';
 
-// load up action map
-var httpActions = {};
-httpActions.append = "POST";
-httpActions.partial = "PATCH";
-httpActions.read = "GET";
-httpActions.remove = "DELETE";
-httpActions.replace = "PUT";
-
-// handy translator for WeSTL-style actions
-exports.actionMethod = function(action, protocol) {
-  var p = protocol||"http";
-  var rtn = "GET";
-
-  switch(p) {
-    case "http":
-      rtn = httpActions[action];
-      break;
-    default:
-      rtn = "GET";
+// only write 'known' properties for an item
+exports.setProps = function(item, props) {
+  var rtn, i, x, p;
+    
+  rtn = {};  
+  for(i=0,x=props.length;i<x;i++) {
+    p = props[i];
+    rtn[p] = (item[p]||"");
   }
   return rtn;
+}
+
+// produce clean array of items
+exports.cleanList = function(elm) {
+  var coll;
+
+  coll = [];
+  if(Array.isArray(elm) === true) {
+    coll = elm;
+  }
+  else {
+    if(elm!==null) {
+      coll.push(elm);
+    }
+  }
+
+  return coll;
 }
 
 // craft an external error response (anything, really)
