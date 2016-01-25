@@ -34,6 +34,7 @@ var csType       = '';
 var csAccept     = '';
 
 // routing rules
+var reRoot = new RegExp('^\/$','i');
 var reFile = new RegExp('^\/files\/.*','i');
 var reHome = new RegExp('^\/home\/.*','i');
 var reTask = new RegExp('^\/task\/.*','i');
@@ -76,6 +77,16 @@ function handler(req, res) {
     return;
   }
 
+  // handle root call (route to /home/)
+  try {
+    if(flg===false && reRoot.test(req.url)) {
+      handleResponse(req, res, 
+        {code:302, doc:"", headers:{'location':'//'+req.headers.host+"/home/"}}
+      );
+    }
+  }
+  catch (ex) {}
+  
   // file handler
   try {
     if(flg===false && reFile.test(req.url)) {
