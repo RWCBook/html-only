@@ -15,7 +15,7 @@ var components = {};
 components.user = require('./../components/user-component.js');
 
 var content = "";
-content += '<div class="ui segment" style="margin:1em;">';
+content += '<div class="ui segment">';
 content += '<h4>Manage TPS Users</h4>';
 content += '</div>';
 

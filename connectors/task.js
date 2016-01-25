@@ -16,7 +16,7 @@ components.task = require('./../components/task-component.js');
 components.user = require('./../components/user-component.js');
 
 var content = "";
-content += '<div class="ui segment" style="margin:1em;">';
+content += '<div class="ui segment">';
 content += '<h4>Manage TPS Tasks</h4>';
 content += '</div>';
 

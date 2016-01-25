@@ -18,7 +18,6 @@ var representation = require('./representor.js');
 // connector modules
 var home = require('./connectors/home.js');
 var task = require('./connectors/task.js');
-var note = require('./connectors/note.js');
 var user = require('./connectors/user.js');
 var wstl = require('./connectors/wstl.js');
 var utils = require('./connectors/utils.js');
@@ -38,7 +37,6 @@ var reRoot = new RegExp('^\/$','i');
 var reFile = new RegExp('^\/files\/.*','i');
 var reHome = new RegExp('^\/home\/.*','i');
 var reTask = new RegExp('^\/task\/.*','i');
-var reNote = new RegExp('^\/note\/.*','i');
 var reUser = new RegExp('^\/user\/.*','i');
 var reWstl = new RegExp('^\/wstl\/.*','i');
 
@@ -113,16 +111,7 @@ function handler(req, res) {
     }
   }
   catch(ex) {}
-
-  // note handler
-  try {
-    if(flg===false && reNote.test(req.url)) {
-      flg = true;
-      doc = note(req, res, parts, handleResponse);
-    }
-  }
-  catch(ex) {}
-  
+ 
   // user handler
   try {
     if(flg===false && reUser.test(req.url)) {

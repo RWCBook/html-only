@@ -40,7 +40,7 @@ function sendPage(req, res, respond) {
   coll = wstl.append({name:"userLink",href:"/user/",
     rel:["collection","rels/user"],root:root},coll);
   
-  content =  '<div class="ui segment" style="margin:1em;">';
+  content =  '<div class="ui segment">';
   content += '<h4>Welcome to TPS at BigCo!</h4>';
   content += '<p>Select one of the following actions:</p>';
   content += '<ul>';

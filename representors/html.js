@@ -35,6 +35,7 @@ function html(object, root) {
   template += '</head>';
   template += '<body>';
   template += '<div id="links">{links}</div>';
+  template += '<div style="margin:1em;">';
   template += '<p>&nbsp;</p>';
   template += '<h1 id="title" class="ui page header">{title}</h1>';
   template += '<div id="content" class="ui">{content}</div>';
@@ -47,6 +48,7 @@ function html(object, root) {
   template += '    {template}';
   template += '    <div id="queries">{queries}</div>';
   template += '  </div>';
+  template += '</div>';
   template += '</div>';
   template += '</body>';
   template += '</html>';

@@ -431,104 +431,11 @@ function loadTrans() {
     ]
   });
 
-  /************************************
-  NOTES
-  *************************************/
-  trans.push({
-    name : "noteLinkItem",
-    type : "safe",
-    action : "read",
-    kind : "note",
-    target : "item",
-    prompt : "Detail",
-    html : {
-      className : "item link ui basic blue button"
-    }
-  });
-    
-  trans.push({
-    name : "noteAssignLink",
-    type : "safe",
-    action : "read",
-    kind : "task",
-    target : "item",
-    prompt : "Assign Task",
-    html : {
-      className : "item action ui basic blue button"
-    }
-  });
-  trans.push({
-    name : "noteFormAssignPost",
-    type : "unsafe",
-    action : "append",
-    kind : "task",
-    target : "item assign edit post form",
-    prompt : "Assign User",
-    inputs : [
-      {name: "id", prompt:"ID", readOnly:true},
-      {name: "assignedTask", prompt:"Assigned TaskID", value:"", required:true, type:"select",
-        suggest:{related:"tasklist",value:"id",text:"title"}
-      }
-    ]
-  });
-
-  trans.push({
-    name : "noteFormListByTitle",
-    type : "safe",
-    action : "read",
-    kind : "task",
-    target : "list query",
-    prompt : "Search By Title",
-    inputs : [
-      {name : "title", prompt : "Title", value : ""}
-    ]
-  });
-  
-  trans.push({
-    name : "noteFormListByText",
-    type : "safe",
-    action : "read",
-    kind : "task",
-    target : "list query",
-    prompt : "Search Note Text",
-    inputs : [
-      {name : "text", prompt : "Text", value : ""}
-    ]
-  });
-
-  trans.push({
-    name : "noteFormAdd",
-    type : "unsafe",
-    action : "append",
-    kind : "task",
-    target : "list add",
-    prompt : "Add Note",
-    inputs : [
-      {name : "title", prompt : "Title", required: true},
-      {name : "assignedTask", prompt : "Assigned Task", value: "", 
-        required: true, type:"select",
-        suggest: {related:"tasklist",value:"id",text:"title"}
-      },      
-      {name : "text", prompt : "Note Text", value: "", required: true, type:"textarea"} 
-    ]
-  });
-
-  trans.push({
-    name : "noteFormEditPost",
-    type : "unsafe",
-    action : "append",
-    kind : "task",
-    prompt : "Edit Note (POST)",
-    target : "item edit form post",
-    inputs : [
-      {name : "title", prompt : "Title", value : ""},
-      {name : "assignedTask", prompt : "Assigned Task", value: "", 
-        readOnly: true, type:"select",
-        suggest: {related:"tasklist",value:"id",text:"title"}
-      },      
-      {name : "text", prompt : "Note Text", value : "", type:"textarea"}
-    ]
-  });
-
+  // return complete 
+  // design-time WSTL
   return trans;
+  
 }
+
+// EOF
+
