@@ -24,29 +24,38 @@ function main(req, res, parts, respond) {
 }
 
 function sendPage(req, res, respond) {
-  var doc, coll, root;
+  var doc, coll, root, data, related, content;
 
   root = '//'+req.headers.host;
   coll = [];
   data = [];
-  content = {};
+  related = {};
+  content = "";
   
   // top-level links
-  coll = wstl.append({name:"homeLink",href:"/home/",rel:["collection","/rels/home"],root:root}, coll);
-  coll = wstl.append({name:"taskLink",href:"/task/",rel:["collection","/rels/task"],root:root},coll); 
-  coll = wstl.append({name:"userLink",href:"/user/",rel:["collection","rels/user"],root:root},coll);
-  coll = wstl.append({name:"noteLink",href:"/note/",rel:["collection","/rels/note"],root:root},coll);
+  coll = wstl.append({name:"homeLink",href:"/home/",
+    rel:["collection","/rels/home"],root:root}, coll);
+  coll = wstl.append({name:"taskLink",href:"/task/",
+    rel:["collection","/rels/task"],root:root},coll); 
+  coll = wstl.append({name:"userLink",href:"/user/",
+    rel:["collection","rels/user"],root:root},coll);
   
-  content = '<h4>Welcome to TPS!</h4>';
-  content += '<p>This is a wonderful system built by wonderful people for wonderful customers';
-  content += ' and I hope you find it wonderful to use.</p>';
+  content =  '<div class="ui segment" style="margin:1em;">';
+  content += '<h4>Welcome to TPS at BigCo!</h4>';
+  content += '<p>Select one of the following actions:</p>';
+  content += '<ul>';
+  content += '<li><a href="/task/" rel="collection /rels/task">Manage Tasks<a/></li>';
+  content += '<li><a href="/user/" rel="collection /rels/user">Manage Users<a/></li>';
+  content += '</ul>';
+  content += '</div>';
   
   // compose graph 
   doc = {};
   doc.title = "TPS - Task Processing System";
+  doc.data =  data;
   doc.actions = coll;
   doc.content = content;
-  doc.data =  data;
+  doc.related = related;
 
   // send the graph
   respond(req, res, {

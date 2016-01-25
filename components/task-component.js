@@ -18,7 +18,7 @@ module.exports = main;
 function main(action, args1, args2, args3) {
   var name, rtn, props;
     
-  // vlaid fields for this record   
+  // valid fields for this record   
   props = ["id","title","completeFlag","assignedUser","dateCreated","dateUpdated"];
   elm = 'task';
 

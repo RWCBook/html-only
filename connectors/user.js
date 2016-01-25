@@ -14,6 +14,11 @@ var utils = require('./utils.js');
 var components = {};
 components.user = require('./../components/user-component.js');
 
+var content = "";
+content += '<div class="ui segment" style="margin:1em;">';
+content += '<h4>Manage TPS Users</h4>';
+content += '</div>';
+
 module.exports = main;
 
 // http-level actions for users
@@ -66,7 +71,6 @@ function sendListPage(req, res, respond) {
   root = '//'+req.headers.host;
   coll = [];
   data = [];
-  content = ""
   
   // parse any filter on the URL line
   // or just pull the full set
@@ -78,14 +82,7 @@ function sendListPage(req, res, respond) {
   else {
     data = components.user('list');
   }
-  
-  if(data.length===0) {
-    content = "<p>No users on file.</p>"
-  }
-  else {
-    content = "";
-  }
-      
+        
   // top-level links
   wstl.append({name:"homeLink",href:"/home/",
     rel:["collection","/rels/home"],root:root}, coll);
@@ -93,8 +90,6 @@ function sendListPage(req, res, respond) {
     rel:["collection","/rels/task"],root:root},coll); 
   wstl.append({name:"userLink",href:"/user/",
     rel:["collection","rels/user"],root:root},coll);
-  wstl.append({name:"noteLink",href:"/note/",
-    rel:["collection","/rels/note"],root:root},coll);
 
   // item actions
   wstl.append({name:"userLinkItem",href:"/user/{key}",
@@ -145,8 +140,6 @@ function sendItemPage(req, res, respond, id) {
       rel:["collection","/rels/task"],root:root},coll); 
     tran = wstl.append({name:"userLink",href:"/user/",
       rel:["collection","rels/user"],root:root},coll);
-    tran = wstl.append({name:"noteLink",href:"/note/",
-      rel:["collection","/rels/note"],root:root},coll);
     
     // item actions
     wstl.append({name:"userLinkItem",href:"/user/{key}",
@@ -167,6 +160,7 @@ function sendItemPage(req, res, respond, id) {
     doc.title = "TPS - Users";
     doc.actions = coll;
     doc.data =  data;
+    doc.content = content;
     respond(req, res, {code:200, doc:{task:doc}});        
   }
 }
@@ -193,8 +187,6 @@ function sendPasswordPage(req, res, respond, id) {
       rel:["collection","/rels/task"],root:root},coll); 
     tran = wstl.append({name:"userLink",href:"/user/",
       rel:["collection","rels/user"],root:root},coll);
-    tran = wstl.append({name:"noteLink",href:"/note/",
-      rel:["collection","/rels/note"],root:root},coll);
     
     // item actions
     wstl.append({name:"userLinkItem",href:"/user/{key}",
@@ -215,6 +207,7 @@ function sendPasswordPage(req, res, respond, id) {
     doc.title = "TPS - Users";
     doc.actions = coll;
     doc.data =  data;
+    doc.content = content;
     respond(req, res, {code:200, doc:{task:doc}});        
   }
 }

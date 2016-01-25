@@ -117,16 +117,7 @@ function loadTrans() {
     kind : "task",
     target : "list menu",
     prompt : "Tasks"
-  });
-  trans.push({
-    name : "noteLink",
-    type : "safe",
-    action : "read",
-    kind : "note",
-    target : "list, menu",
-    prompt : "Notes"
-  });
-  
+  });  
   trans.push({
     name : "userLink",
     type : "safe",
@@ -200,14 +191,6 @@ function loadTrans() {
   
   // add task
   trans.push({
-    name : "taskLinkAdd",
-    type : "safe",
-    action : "read",
-    kind : "task",
-    target : "list",
-    prompt : "Add Task"
-  });
-  trans.push({
     name : "taskFormAdd",
     type : "unsafe",
     action : "append",
@@ -240,39 +223,11 @@ function loadTrans() {
   
   // edit task
   trans.push({
-    name : "taskLinkEdit",
-    type : "safe",
-    action : "read",
-    kind : "task",
-    target : "item",
-    prompt : "Edit",
-    html : {
-      className : "item action ui positive button"
-    }
-  });
-  trans.push({
-    name : "taskFormEdit",
-    type : "unsafe",
-    action : "replace",
-    kind : "task",
-    prompt : "Edit Task",
-    target : "item edit form",
-    inputs : [
-      {name : "id", prompt : "ID", value : "", readOnly: true},
-      {name : "title", prompt : "Title", value : ""},
-      {name : "completeFlag", prompt : "Complete", value : "false", 
-        pattern :"true|false",
-        type:"select",
-        suggest:[{value:"false"},{value:"true"}] 
-      }
-    ]
-  });
-  trans.push({
     name : "taskFormEditPost",
     type : "unsafe",
     action : "append",
     kind : "task",
-    prompt : "Edit Task (POST)",
+    prompt : "Edit Task",
     target : "item edit form post",
     inputs : [
       {name : "id", prompt : "ID", value : "", readOnly : true},
@@ -287,33 +242,11 @@ function loadTrans() {
 
   // remove task
   trans.push({
-    name : "taskLinkRemove",
-    type : "safe",
-    action : "read",
-    kind : "todo",
-    target : "item remove",
-    prompt : "Remove",
-    html : {
-      className : "item action ui negative button"
-    }    
-  });
-  trans.push({
-    name : "taskFormRemove",
-    type : "unsafe",
-    action : "remove",
-    kind : "task",
-    prompt : "Remove Task",
-    target : "item remove form",
-    inputs : [
-      {name : "id", prompt : "ID"}
-    ]
-  });
-  trans.push({
     name : "taskFormRemovePost",
     type : "unsafe",
     action : "append",
     kind : "task",
-    prompt : "Remove Task (POST)",
+    prompt : "Remove Task",
     target : "item edit form post",
     inputs : [
       {name : "id", prompt : "ID", readOnly : true}
