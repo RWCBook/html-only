@@ -27,6 +27,7 @@ function html(object, root) {
   
   // this is the standard HTML layout for this representor
   template =  '';
+  template += '<!DOCTYPE html>';
   template += '<html>';
   template += '<head>';
   template += '  <title>{title}</title>'
@@ -55,6 +56,7 @@ function html(object, root) {
   
   // this is the error HTML layout
   errpage =  '';
+  errpage += '<!DOCTYPE html>';
   errpage += '<html>';
   errpage += '<head>';
   errpage += '  <title>ERROR</title>'
