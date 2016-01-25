@@ -58,7 +58,13 @@ exports.errorResponse = function(req, res, msg, code, description) {
   };
 }
 
-// simple file responder (*not* streaming)
+// simple file responder
+//
+// ASSUMES: 
+// - only files to deal with are JS, CSS & HTML
+// - all of them are in a single sub-folder (FILES)
+// - NOTE: this is a *synch* routine w/o streaming
+//
 exports.file = function(req, res, parts, respond) {
   var body, doc, type;
 
@@ -89,6 +95,8 @@ exports.file = function(req, res, parts, respond) {
 }
 
 // dispatch for parsing incoming HTTP bodies
+// ALWAYS returns JSON NVP collection
+//
 exports.parseBody = function(body, ctype) {
   var msg;
   
@@ -107,7 +115,6 @@ exports.parseBody = function(body, ctype) {
 }
 
 // process an incoming cj template body
-// see: http://amundsen.com/media-types/collection/examples/#ex-write
 exports.cjBody = cjBody;
 function cjBody(body) {
   var rtn, data, i, x;
