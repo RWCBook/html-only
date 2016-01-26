@@ -1,7 +1,7 @@
 {
   "name": "Task Processing System (HTML)",
-  "description": "The HTML-only version of the TPS sample app from @RWCBook",
+  "description": "The HTML-only version of the TPS sample NodeJS app from @RWCBook",
   "repository": "https://github.com/RWCBook/html-only",
-  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "logo": "https://avatars2.githubusercontent.com/u/16432667?v=3&s=200",
   "keywords": ["Hypermedia", "REST", "RWCBook"]
 }
