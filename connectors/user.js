@@ -16,7 +16,13 @@ components.user = require('./../components/user-component.js');
 
 var content = "";
 content += '<div class="ui segment">';
-content += '<h4>Manage TPS Users</h4>';
+content += '<h3>Manage your TPS Users here.</h3>';
+content += '<p>You can do the following:</p>';
+content += '<ul>';
+content += '<li>Add and Edit users</li>';
+content += '<li>Change the password, view the tasks assigned to a user</li>';
+content += '<li>Filter the list by Nickname or FullName</li>';
+content += '</ul>';
 content += '</div>';
 
 module.exports = main;

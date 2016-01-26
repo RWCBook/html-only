@@ -41,8 +41,8 @@ function sendPage(req, res, respond) {
     rel:["collection","rels/user"],root:root},coll);
   
   content =  '<div class="ui segment">';
-  content += '<h4>Welcome to TPS at BigCo!</h4>';
-  content += '<p>Select one of the following actions:</p>';
+  content += '<h3>Welcome to TPS at BigCo!</h3>';
+  content += '<p><b>Select one of the following actions:</b></p>';
   content += '<ul>';
   content += '<li><a href="/task/" rel="collection /rels/task">Manage Tasks<a/></li>';
   content += '<li><a href="/user/" rel="collection /rels/user">Manage Users<a/></li>';

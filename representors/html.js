@@ -38,7 +38,9 @@ function html(object, root) {
   template += '<div id="links">{links}</div>';
   template += '<div style="margin:1em;">';
   template += '<p>&nbsp;</p>';
-  template += '<h1 id="title" class="ui page header">{title}</h1>';
+  template += '<h1 id="title" class="ui page header" style="margin-bottom:40px" >{title}';
+  template += '<img src="http://mamund.site44.com/rwabook/big-co.png" height="48" alt="big-co logo" align="right"/></p>';
+  template += '</h1>';
   template += '<div id="content" class="ui">{content}</div>';
   template += '<div id="data" class="ui two column grid" style="margin-top: 2em">';
   template += '  <div id="col1" class="column">';
