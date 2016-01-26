@@ -4,4 +4,6 @@
 
 *HTML-only web site/app*
 
-Deployed here: http://rwabook01.herokuapp.com/
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Sample running here: http://rwabook01.herokuapp.com/
