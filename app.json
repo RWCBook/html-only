@@ -1,5 +1,5 @@
 {
-  "name": "TPS - Task Processing System (HTML-Only)",
+  "name": "Task Processing System (HTML)",
   "description": "The HTML-only version of the TPS sample app from @RWCBook",
   "repository": "https://github.com/RWCBook/html-only",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
