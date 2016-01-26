@@ -207,20 +207,6 @@ function loadTrans() {
     ]
   });
 
-  // task notes
-  trans.push({
-    name : "taskNotesLink",
-    description : "Returns a list of notes for this task",
-    type : "safe",
-    action : "read",
-    kind : "task",
-    target : "item",
-    prompt : "Task Notes",
-    html : {
-      className : "item action ui basic blue button"
-    }
-  });
-  
   // edit task
   trans.push({
     name : "taskFormEditPost",
@@ -367,23 +353,11 @@ function loadTrans() {
   });
 
   trans.push({
-    name : "userFormEdit",
-    type : "unsafe",
-    action : "replace",
-    kind : "task",
-    prompt : "Edit User",
-    target : "item edit form",
-    inputs : [
-      {name : "nick", prompt : "Nickname", value : "", readOnly: true},
-      {name : "name", prompt : "Full Name", value : ""}
-    ]
-  });
-  trans.push({
     name : "userFormEditPost",
     type : "unsafe",
     action : "append",
     kind : "task",
-    prompt : "Edit User (POST)",
+    prompt : "Edit User",
     target : "item edit form post",
     inputs : [
       {name : "nick", prompt : "Nickname", value : "", readOnly: true},
@@ -403,25 +377,11 @@ function loadTrans() {
     }
   });
   trans.push({
-    name : "userFormChangePW",
-    type : "unsafe",
-    action : "replace",
-    kind : "task",
-    prompt : "Change Password",
-    target : "item edit form",
-    inputs : [
-      {name : "nick", prompt : "Nickname", value : "", readOnly: true},
-      {name : "oldpass", prompt : "Current Password", value : "", required: true, pattern: "[a-zA-Z0-9!@#$%^&*-]+"},
-      {name : "newpass", prompt : "New Password", value : "", required: true, pattern: "[a-zA-Z0-9!@#$%^&*-]+"},
-      {name : "checkpass", prompt : "Confirm New Password", value : "", required: true, pattern: "[a-zA-Z0-9!@#$%^&*-]+"}
-    ]
-  });
-  trans.push({
     name : "userFormChangePWPost",
     type : "unsafe",
     action : "append",
     kind : "task",
-    prompt : "Change Password (POST)",
+    prompt : "Change Password",
     target : "item edit form post",
     inputs : [
       {name : "nick", prompt : "Nickname", value : "", readOnly: true},
