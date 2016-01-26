@@ -1,8 +1,8 @@
-# HTML-WEB
+# HTML-ONLY
 
 #### TPS - Task Processing Service
 
-*HTML-only web site/app*
+*HTML-only edition of the TPS web site/app*
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
